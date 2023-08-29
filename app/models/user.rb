@@ -7,11 +7,11 @@ class User < ApplicationRecord
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
   validates_format_of :password, with: PASSWORD_REGEX
+    # パスワードの文字数制限についてもdeviseが担っているため省略。
   with_options presence: true do
     validates :nickname
     validates :email, uniqueness: true
     # @含むこと・存在することはdeviseのデフォルト実装のため省略
-    validates :password, length: { minimum: 6 }
 
     # 全角ひらがな、全角カタカナ、漢字
     validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
