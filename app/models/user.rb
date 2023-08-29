@@ -10,7 +10,7 @@ class User < ApplicationRecord
     # パスワードの文字数制限についてもdeviseが担っているため省略。
   with_options presence: true do
     validates :nickname
-    validates :email, uniqueness: true
+    
     # @含むこと・存在することはdeviseのデフォルト実装のため省略
 
     # 全角ひらがな、全角カタカナ、漢字
