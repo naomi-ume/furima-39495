@@ -8,7 +8,7 @@ with_options presence: true do
   validates :price
   validates :description
   validates :category_id
-  validates :condition_id
+  validates :item_status_id
   validates :shipping_cost_id
   validates :prefecture_id
   validates :shipping_date_id
