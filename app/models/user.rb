@@ -3,15 +3,15 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many :items
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
   validates_format_of :password, with: PASSWORD_REGEX
-    # パスワードの文字数制限についてもdeviseが担っているため省略。
+  # パスワードの文字数制限についてもdeviseが担っているため省略。
   with_options presence: true do
     validates :nickname
-    
+
     # @含むこと・存在することはdeviseのデフォルト実装のため省略
 
     # 全角ひらがな、全角カタカナ、漢字
