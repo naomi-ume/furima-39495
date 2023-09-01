@@ -14,11 +14,11 @@ class Item < ApplicationRecord
   with_options numericality: { other_than: 1 } do
    validates :prefecture_id
    validates :category_id
-   validates :item_status
+   validates :item_status_id
    validates :shipping_cost_id
    validates :shipping_date_id
   end
-  
+
   with_options presence: true do
    validates :user
    validates :item_name
