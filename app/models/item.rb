@@ -20,7 +20,6 @@ class Item < ApplicationRecord
   end
 
   with_options presence: true do
-    validates :user
     validates :item_name
     validates :price
     validates :description
