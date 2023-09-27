@@ -13,7 +13,7 @@ def create
     @order_form.save
     redirect_to root_path
   else
-    render :index
+    render :index, status: :unprocessable_entity
   end
 end
 
