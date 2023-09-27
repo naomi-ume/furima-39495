@@ -129,15 +129,18 @@
     <ul class='item-lists'>
     <% @items.each do |item| %>
       <%# 商品の中身を全表示 %>
+      <% @items.each do |item| %>
       <li class='list'>
         <%= link_to item_path(item) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
+          <% if item.order.present? %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
+          <% end %>
           <%# //商品が売れていればsold outを表示しましょう %>
 
         </div>
