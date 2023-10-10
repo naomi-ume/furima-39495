@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe OrderForm, type: :model do
   before do
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
     @order_form = FactoryBot.build(:order_form)
   end
 
@@ -82,6 +84,11 @@ RSpec.describe OrderForm, type: :model do
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include('Phone number is invalid')
       end
+      
+      it 'phone_numberは9桁以下の数字では保存できない' do
+        @order_form.phone_number = '090123456'
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include('Phone number is invalid')
 
       it 'phone_numberは半角英数混合では保存できない' do
         @order_form.phone_number = 'abc123456789'
