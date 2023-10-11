@@ -4,7 +4,7 @@ RSpec.describe OrderForm, type: :model do
   before do
     user = FactoryBot.create(:user)
     item = FactoryBot.create(:item)
-    @order_form = FactoryBot.build(:order_form,user_id: user.id,item_id: item.id)
+    @order_form = FactoryBot.build(:order_form, user_id: user.id, item_id: item.id)
   end
 
   describe '商品購入情報の保存' do
@@ -84,7 +84,7 @@ RSpec.describe OrderForm, type: :model do
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include('Phone number is invalid')
       end
-      
+
       it 'phone_numberは9桁以下の数字では保存できない' do
         @order_form.phone_number = '090123456'
         @order_form.valid?
