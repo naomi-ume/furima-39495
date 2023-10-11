@@ -89,6 +89,7 @@ RSpec.describe OrderForm, type: :model do
         @order_form.phone_number = '090123456'
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include('Phone number is invalid')
+      end
 
       it 'phone_numberは半角英数混合では保存できない' do
         @order_form.phone_number = 'abc123456789'
